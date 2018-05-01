@@ -7,25 +7,32 @@
 </head>
 <body>
     <section id="intro">
-        <!-- <img id="rubick-image" src="https://vignette.wikia.nocookie.net/powerlisting/images/a/a3/Rubick_Grand_Magus_Dota_2.jpg/revision/latest?cb=20150607213215" alt="rubick banner" width=100%> -->
+        <img id="rubick-image" src="https://vignette.wikia.nocookie.net/powerlisting/images/a/a3/Rubick_Grand_Magus_Dota_2.jpg/revision/latest?cb=20150607213215" alt="rubick banner" width="100%">
         <h1 id="title">Rubick's Guessing Game</h1>
-        <p> Welcome to the game. Test your mettle on some games below!</p>
+        <p>Welcome to the game. Test your mettle on some games below!</p>
     </section>
     <section class="games" id="ultimate-game">
         <h2>Ultimate Game</h2>
         <p>Each hero has a unique ultimate spell. I'll list 10 spells, can you figure out who each one belongs to?</p>
-        <button onclick="ultimateGame()">Play</button>
+        <button onclick="ultimateGame()">Start</button>
         <p id="ultimate-game-stars"></p>
         <h3 id="ultimate-game-score"></h3>
         <hr>
     </section>
     <section class="game" id="item-game">
         <h2>Item Game</h2>
-        
+        <p>Hmmmm, what a test this shall be. I have some items I'd like to build. I will tell you an item along with my goal item. You can tell me whether or not it is a required component of said item.</p>
+        <button onclick="itemGame()">Start</button>
+        <p id="item-game-stars"></p>
+        <h3 id="item-game-score"></h3>
         <hr>
     </section>
     <section class="game" id="invoker-game">
         <h2>Invoker's Game</h2>
+        <p>My thirst for knowledge cannot be quenched. I've got the Arsenal Magus here to help me learn his spells!</p>
+        <img id="invoker-image" src="https://d1u5p3l4wpay3k.cloudfront.net/dota2_gamepedia/0/00/Invoker_icon.png?version=56d9cb4b56606f5e64cfba462dd797d8" alt="invoker">
+        <p><q>Knowledge is power! Do you which 3 orbs I'll need to invoke each spell?</q></p>
+        <button onclick="invokerGame()">Start</button>
         <hr>
     </section>
     <script src="app.js"></script>
