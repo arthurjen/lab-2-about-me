@@ -6,7 +6,6 @@
 
 1. Use Html (and what CSS you know), to allow people to quickly learn a few things about you, 
 such as a short bio, my education, an overview of my job experience, and my goals.
-1. Allow the user to input their name, so that the program is personalized to their experience
 1. Give the visitors to your About Me page the option to play at least guessing games that shows how fun-loving and interesting you are, and maybe include things about yourself that would not ordinarily appear in a portfolio page. Be creative and fun and whimsical. Or not. It's up to you! It's your project! (HINT: no one will check if this is real or not)
     * Use a button to "start" each guessing game.
     * Use `prompt`, `confirm` and/or `alert` to ask them game questions.
