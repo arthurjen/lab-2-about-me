@@ -1,10 +1,16 @@
 'use strict';
 
 function ultimateGame() {
+    //initializing where the stars/x's go
     var ultimateStars = document.getElementById('ultimate-game-stars');
+    //initializing where the end score goes
     var ultimateScore = document.getElementById('ultimate-game-score');
+    //initializing score at 0
     var score = 0;
+    
+    //the game begins! User is prompted with a spell, and must return the name of the hero that has that spell.
     var name = prompt('Supernova!');
+    //if correct, increment score and give them a star. Otherwise, just give them an X.
     if(name.trim().toLowerCase() === 'phoenix') {
         alert('Indeed!');
         score++;
@@ -14,7 +20,7 @@ function ultimateGame() {
         alert('Ha! That was terrible.');
         ultimateStars.textContent = '❌';
     }
-   
+    //repeat for all spells. Unsure if reusing variable "name" is kosher or not.
     name = prompt('Epicenter!');
     if(name.trim().toLowerCase() === 'earth shaker') {
         alert('Aha!');
@@ -113,6 +119,7 @@ function ultimateGame() {
         alert('Memory is an imperfect vessel.');
         ultimateStars.textContent += '❌';
     }
-
+    //Display their final score out of 10.
     ultimateScore.textContent = 'You scored ' + score + ' out of 10!';
 }
+
