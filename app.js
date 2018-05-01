@@ -187,3 +187,145 @@ function itemGame() {
     itemScore.textContent = 'You scored ' + score + ' out of 5!';
 }
 
+function invokerGame() {
+    var invokerResponse = document.getElementById('invoker-response');
+    //initializing where the emojis go
+    var invokerEmojis = document.getElementById('invoker-game-emojis');
+    //initializing where the end score goes
+    var invokerScore = document.getElementById('invoker-game-score');
+    //initializing score at 0
+    var score = 0;
+    var randomNumber = Math.floor(Math.random() * 11);
+    if(randomNumber === 1) {
+        var spell = prompt('Coldsnap!');
+        if(spell.toUpperCase() === 'QQQ') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '❄️';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 2) {
+        spell = prompt('Ghost Walk!');
+        if(spell.toUpperCase() === 'QQW' || spell.toUpperCase() === 'QWQ' || spell.toUpperCase() === 'WQQ') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '👻';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 3) {
+        spell = prompt('Ice Wall!');
+        if(spell.toUpperCase() === 'QQE' || spell.toUpperCase() === 'QEQ' || spell.toUpperCase() === 'EQQ') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '🏔';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 4) {
+        spell = prompt('EMP!');
+        if(spell.toUpperCase() === 'WWW') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '⚡️';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 5) {
+        spell = prompt('Tornado!');
+        if(spell.toUpperCase() === 'WWQ' || spell.toUpperCase() === 'WQW' || spell.toUpperCase() === 'QWW') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '🌪';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 6) {
+        spell = prompt('Alacrity!');
+        if(spell.toUpperCase() === 'WWE' || spell.toUpperCase() === 'WEW' || spell.toUpperCase() === 'EWW') {
+            invokerResponse.textContent = 'Impressive.';
+            score++;
+            invokerEmojis.textContent += '🏃‍';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 7) {
+        spell = prompt('Sun Strike!');
+        if(spell.toUpperCase() === 'EEE') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '☀️';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 8) {
+        spell = prompt('Forge Spirit!');
+        if(spell.toUpperCase() === 'EEQ' || spell.toUpperCase() === 'EQE' || spell.toUpperCase() === 'QEE') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '🔥';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 7) {
+        spell = prompt('Chaos Meteor!');
+        if(spell.toUpperCase() === 'EEW' || spell.toUpperCase() === 'EWE' || spell.toUpperCase() === 'WEE') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '☄️';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    else if(randomNumber === 10) {
+        spell = prompt('Deafening Blast!');
+        if(spell.toUpperCase() === 'QWE' || spell.toUpperCase() === 'QEW' || spell.toUpperCase() === 'WQE' || spell.toUpperCase() === 'WEQ' || spell.toUpperCase() === 'EQW' || spell.toUpperCase() === 'EWQ') {
+            invokerResponse.textContent = 'Impressive.';
+            score = score + 1;
+            invokerEmojis.textContent += '🔊';
+        }
+        else {
+            invokerResponse.textContent = 'Lamentable.';
+            score = 0;
+            invokerEmojis.textContent = '';
+        }
+    }
+    //Display invoking spree
+    invokerScore.textContent = 'You\'ve invoked ' + score + ' spells in a row!';
+}
