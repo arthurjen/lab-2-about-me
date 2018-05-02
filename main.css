@@ -42,3 +42,7 @@ div {
     top: 900px;
     z-index: 3;
 }
+
+#invoker-game-emojis {
+    font-size: 2em;
+}

@@ -337,17 +337,22 @@ function invokerGame() {
     invokerScore.textContent = 'You\'ve invoked ' + invokerSpree + ' spells in a row!';
 }
 
-//decalre the movespeed target outside of function
-var myMovespeed = +290;
+//declare the movespeed target outside of function
+var myMovespeed = 290;
 function movespeedGame() {
     //initializing where the end response
     var movespeedScore = document.getElementById('movespeed-game-score');
 
-    //create a loop of i+1 guesses 
+    //create a loop of i+1 guesses
     for(var i = 4; i >= 0; i--) {
-        var movespeedGuess = +prompt('What is my movespeed?');
+        var movespeedGuess = prompt('What is my movespeed?');
+        console.log(movespeedGuess);
+        //continue only if user didn't cancel or enter nothing
+        if(movespeedGuess === null) {
+            break;
+        }
         //check to see if it's the correct answer
-        if(movespeedGuess === myMovespeed) {
+        else if(movespeedGuess == myMovespeed) {
             alert('The journey was worth it!');
             movespeedScore.textContent = 'You guessed my movespeed! Well done.';
             break;
@@ -357,6 +362,10 @@ function movespeedGame() {
             alert('You lost!');
             movespeedScore.textContent = 'You didn\'t guess my movespeed.';
             break;
+        }
+        //condition if it's the final guess
+        else if(i === 1) {
+            alert('For your last guess, I\'ll give you a hint. Lion and I are the same speed.');
         }
         //otherwise, give a hint and notify how many guesses remain
         else if(movespeedGuess > 522) {
@@ -369,7 +378,7 @@ function movespeedGame() {
             alert('I\'m only a bit slower than Anti-mage. You have ' + i + ' more guesses.');
         }
         else if(movespeedGuess > 290) {
-            alert('So close! You have ' + i + ' more guesses.')
+            alert('So close! You have ' + i + ' more guesses.');
         }
         else if(movespeedGuess < 290) {
             alert('I\'m faster than that. Try ' + i + ' more times.');
@@ -380,5 +389,6 @@ function movespeedGame() {
         else {
             alert('Nope, guess again! You have ' + i + ' more tries.');
         }
+        
     }
 }
