@@ -6,12 +6,16 @@ function rubickCorrectResponse() {
         'Indeed.',
         'Aha!',
         'Absolutely!',
+        'Absolutely.'
         'Yes!',
         'Oh, there it is!',
         'Mhmm.',
         'I agree!',
         'So many mysteries revealed.',
         'Hehehe!',
+        'This should come in handy!',
+        'Friends, I think we can agree that this one is in the bag!',
+        'Very good!',
         'Such skill!'
     ];
     var x = Math.floor(Math.random() * rubickCorrect.length);
@@ -29,7 +33,9 @@ function rubickWrongResponse() {
         'No!',
         'Memory is an imperfect vessel.',
         'Apply yourself!',
-        'I almost feel bad.'
+        'I almost feel bad.',
+        'You idiot! Ugh.',
+        'That was your best?'
     ];
     var x = Math.floor(Math.random() * rubickWrong.length);
     alert(rubickWrong[x]);
@@ -111,63 +117,72 @@ function ultimateGame() {
 function itemGame() {
     //initializing where the stars/x's go
     var itemStars = document.getElementById('item-game-stars');
+    itemStars.textContent = '';
     //initializing where the end score goes
     var itemScore = document.getElementById('item-game-score');
     //initializing score at 0
     var score = 0;
 
-    var item = prompt('1. Does a Force Staff require a Ring of Regen?');
-    if(item.trim().toLowerCase() === 'y' || item.trim().toLowerCase() === 'yes') {
-        alert('This should come in handy!');
-        score++;
-        itemStars.textContent = '⭐️';
+    var itemKey = [
+        {
+            item: 'Force Staff',
+            trueComponent: 'Ring of Regen',
+            falseComponent: 'Ring of Health'
+        },
+        {
+            item: 'Scythe of Vyse',
+            trueComponent: 'Ultimate Orb',
+            falseComponent: 'Staff of Wizardry'
+        },
+        {
+            item: 'Veil of Discord',
+            trueComponent: 'Circlet',
+            falseComponent: 'Chainmail'
+        },
+        {
+            item: 'Orchid Malevolence',
+            trueComponent: 'Ring of Regen',
+            falseComponent: 'Crystalys'
+        },
+        {
+            item: 'Shiva\'s Guard',
+            trueComponent: 'Platemail',
+            falseComponent: 'Energy Booster'
+        },
+    ];
+    var itemResponse;
+    for(var i = 0; i < itemKey.length; i++) {
+        var trueOrFalse = 1 + Math.floor(Math.random() * 2);
+        console.log(trueOrFalse);
+        if(trueOrFalse === 1) {
+            itemResponse = prompt('Is ' + itemKey[i].trueComponent + ' a required component of ' + itemKey[i].item + '?');
+        }
+        else {
+            itemResponse = prompt('Is ' + itemKey[i].falseComponent + ' a required component of ' + itemKey[i].item + '?');
+        }
+        
+        if(itemResponse === null) {
+            break;
+        }
+        itemResponse = itemResponse.toLowerCase();
+        console.log(itemResponse);
+        
+        if(trueOrFalse === 1 && itemResponse === 'true') {
+            rubickCorrectResponse();
+            score++;
+            itemStars.textContent += '⭐️';
+        }
+        else if(trueOrFalse === 2 && itemResponse === 'false') {
+            rubickCorrectResponse();
+            score++;
+            itemStars.textContent += '⭐️';
+        }
+        else {
+            rubickWrongResponse();
+            itemStars.textContent += '❌';
+        }
     }
-    else {
-        alert('Whoops.');
-        itemStars.textContent = '❌';
-    }
-
-    item = prompt('2. Does a Scythe of Vyse require a Staff of Wizardry?');
-    if(item.trim().toLowerCase() === 'n' || item.trim().toLowerCase() === 'no') {
-        alert('I agree.');
-        score++;
-        itemStars.textContent += '⭐️';
-    }
-    else {
-        alert('Bah, how forgetful of me.');
-        itemStars.textContent += '❌';
-    }
-    item = prompt('3. Does a Veil of Discord require a Circlet?');
-    if(item.trim().toLowerCase() === 'y' || item.trim().toLowerCase() === 'yes') {
-        alert('Absolutely.');
-        score++;
-        itemStars.textContent += '⭐️';
-    }
-    else {
-        alert('You idiot. Ugh.');
-        itemStars.textContent += '❌';
-    }
-    item = prompt('4. Does an Orchid Malevolence require a Quarterstaff?');
-    if(item.trim().toLowerCase() === 'y' || item.trim().toLowerCase() === 'yes') {
-        alert('Very good!');
-        score++;
-        itemStars.textContent += '⭐️';
-    }
-    else {
-        alert('That was your best?');
-        itemStars.textContent += '❌';
-    }
-    item = prompt('5. Does a Shiva\'s Guard require a Helm of Iron Will?');
-    if(item.trim().toLowerCase() === 'n' || item.trim().toLowerCase() === 'no') {
-        alert('Friends! I think we can agree that this one is in the bag!');
-        score++;
-        itemStars.textContent += '⭐️';
-    }
-    else {
-        alert('Maybe next time.');
-        itemStars.textContent += '❌';
-    }
-
+    
     //Display final score
     itemScore.textContent = 'You scored ' + score + ' out of 5!';
 }
