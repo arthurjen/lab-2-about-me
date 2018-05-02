@@ -1,5 +1,5 @@
 'use strict';
-
+/* exported ultimateGame, itemGame, invokerGame, movespeedGame, */
 function ultimateGame() {
     //initializing where the stars/x's go
     var ultimateStars = document.getElementById('ultimate-game-stars');
@@ -22,7 +22,7 @@ function ultimateGame() {
     }
     //repeat for all spells. Unsure if reusing variable "name" is kosher or not.
     name = prompt('2. Epicenter!');
-    if(name.trim().toLowerCase() === 'earth shaker') {
+    if(name.trim().toLowerCase() === 'sand king') {
         alert('Aha!');
         score++;
         ultimateStars.textContent += '⭐️';
@@ -33,7 +33,7 @@ function ultimateGame() {
     }
 
     name = prompt('3. Exorcism!');
-    if(name.trim().toLowerCase() === 'death\'s prophet' || name.trim().toLowerCase() === 'deaths prophet') {
+    if(name.trim().toLowerCase() === 'death\'s prophet' || name.trim().toLowerCase() === 'deaths prophet' || name.trim().toLowerCase() === 'krobelus') {
         alert('Absolutely!');
         score++;
         ultimateStars.textContent += '⭐️';
@@ -53,9 +53,9 @@ function ultimateGame() {
         alert('Maybe next time.');
         ultimateStars.textContent += '❌';
     }
-
+    
     name = prompt('5. Omnislash!');
-    if(name.trim().toLowerCase() === 'juggernaut') {
+    if(name.trim().toLowerCase() === 'juggernaut' || name.trim().toLowerCase() === 'Yurnero') {
         alert('Yes!');
         score++;
         ultimateStars.textContent += '⭐️';
@@ -392,3 +392,15 @@ function movespeedGame() {
         }
     }
 }
+
+function guess() {
+    var colorInput = document.getElementById('color');
+    var color = colorInput.value;
+    if(color === 'blue') {
+        document.getElementById('color-btn').disabled = true;
+    }
+}
+
+
+
+
