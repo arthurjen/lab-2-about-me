@@ -6,7 +6,7 @@ function rubickCorrectResponse() {
         'Indeed.',
         'Aha!',
         'Absolutely!',
-        'Absolutely.'
+        'Absolutely.',
         'Yes!',
         'Oh, there it is!',
         'Mhmm.',
@@ -40,7 +40,8 @@ function rubickWrongResponse() {
     var x = Math.floor(Math.random() * rubickWrong.length);
     alert(rubickWrong[x]);
 }
-unction invokerWrongResponse() {
+var invokerWrongText;
+function invokerWrongResponse() {
     const invokerWrong = [
         'Lamentable.',
         'Infelicitous.',
@@ -54,7 +55,8 @@ unction invokerWrongResponse() {
         'Short-sighted of you.'
     ];
     var x = Math.floor(Math.random() * invokerWrong.length);
-    alert(invokerWrong[x]);
+    invokerWrongText = invokerWrong[x];
+    //alert(invokerWrong[x]);
 }
 
 function ultimateGame() {
@@ -215,8 +217,7 @@ function invokerGame() {
     var invokerScore = document.getElementById('invoker-game-score');
     
     //first generate a random number between 1-10
-    var randomNumber = Math.floor(Math.random() * 10);
-    console.log(randomNumber);
+    var randomSpell = Math.floor(Math.random() * 10);
     //depending on the number, prompt user with a spell.
     var spellKey = [
         {
@@ -236,139 +237,63 @@ function invokerGame() {
             orbs: ['QQE', 'QEQ', 'EQQ'],
             response: ['The harsh white waste beckons!'],
             emoji: '🏔'
+        },
+        {
+            spell: 'EMP',
+            orbs: ['WWW'],
+            response: ['Extractive Mana Pulse!'],
+            emoji: '⚡️'
+        },
+        {
+            spell: 'Tornado',
+            orbs: ['WWQ', 'WQW', 'QWW'],
+            response: ['Wex Cyclonus!'],
+            emoji: '🌪'
+        },
+        {
+            spell: 'Alacrity',
+            orbs: ['WWE', 'WEW', 'EWW'],
+            response: ['Experience true swiftness!'],
+            emoji: '🏃‍'
+        },
+        {
+            spell: 'Sunstrike',
+            orbs: ['EEE'],
+            response: ['Harlek\'s Incantation of Incineration!'],
+            emoji: '☀️'
+        },
+        {
+            spell: 'Forge Spirit',
+            orbs: ['EEQ', 'EQE', 'QEE'],
+            response: ['Ravagers of Armor and Will!'],
+            emoji: '🔥'
+        },
+        {
+            spell: 'Chaos Meteor',
+            orbs: ['EEW', 'EWE', 'WEE'],
+            response: ['Behold the meatball!'],
+            emoji: '☄️'
+        },
+        {
+            spell: 'Deafening Blast',
+            orbs: ['QWE', 'QEW', 'WQE', 'WEQ', 'EQW', 'EWQ'],
+            response: ['Sonic BOOM!'],
+            emoji: '🔊'
         }
     ]
-    var spell;
-    /*if(randomNumber === 0) {
-        spell = prompt('Coldsnap!');
-        if(spell.toUpperCase() === 'QQQ') {
-            invokerResponse.textContent = 'Quas Frigoris!';
-            invokerSpree++;
-            invokerEmojis.textContent += '❄️';
-        }
-        else {
-            invokerResponse.textContent = 'Words fail me...';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
+    var orbResponse = prompt(spellKey[randomSpell].spell + '!');
+    orbResponse = orbResponse.toUpperCase();
+    if(spellKey[randomSpell].orbs.includes(orbResponse) === true) {
+        invokerResponse.textContent = spellKey[randomSpell].response;
+        invokerEmojis.textContent += spellKey[randomSpell].emoji;
+        invokerSpree++;
     }
-    else if(randomNumber === 1) {
-        spell = prompt('Ghost Walk!');
-        if(spell.toUpperCase() === 'QQW' || spell.toUpperCase() === 'QWQ' || spell.toUpperCase() === 'WQQ') {
-            invokerResponse.textContent = 'Geist of Lethargy!';
-            invokerSpree++;
-            invokerEmojis.textContent += '👻';
-        }
-        else {
-            invokerResponse.textContent = 'Infelicitous.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
+    else {
+        invokerSpree = 0;
+        invokerWrongResponse();
+        invokerResponse.textContent = invokerWrongText;
+        invokerEmojis.textContent = '';
     }
-    else if(randomNumber === 2) {
-        spell = prompt('Ice Wall!');
-        if(spell.toUpperCase() === 'QQE' || spell.toUpperCase() === 'QEQ' || spell.toUpperCase() === 'EQQ') {
-            invokerResponse.textContent = 'The harsh white waste beckons!';
-            invokerSpree++;
-            invokerEmojis.textContent += '🏔';
-        }
-        else {
-            invokerResponse.textContent = 'Lamentable.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 3) {
-        spell = prompt('EMP!');
-        if(spell.toUpperCase() === 'WWW') {
-            invokerResponse.textContent = 'Extractive Mana Pulse!';
-            invokerSpree++;
-            invokerEmojis.textContent += '⚡️';
-        }
-        else {
-            invokerResponse.textContent = 'This magic... disappoints.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 4) {
-        spell = prompt('Tornado!');
-        if(spell.toUpperCase() === 'WWQ' || spell.toUpperCase() === 'WQW' || spell.toUpperCase() === 'QWW') {
-            invokerResponse.textContent = 'Wex cyclonus!';
-            invokerSpree++;
-            invokerEmojis.textContent += '🌪';
-        }
-        else {
-            invokerResponse.textContent = 'This spell works nowise!';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 5) {
-        spell = prompt('Alacrity!');
-        if(spell.toUpperCase() === 'WWE' || spell.toUpperCase() === 'WEW' || spell.toUpperCase() === 'EWW') {
-            invokerResponse.textContent = 'Experience true swiftness!';
-            invokerSpree++;
-            invokerEmojis.textContent += '🏃‍';
-        }
-        else {
-            invokerResponse.textContent = 'Perturbations!';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 6) {
-        spell = prompt('Sun Strike!');
-        if(spell.toUpperCase() === 'EEE') {
-            invokerResponse.textContent = 'Harlek\'s Incantation of Incineration!';
-            invokerSpree++;
-            invokerEmojis.textContent += '☀️';
-        }
-        else {
-            invokerResponse.textContent = 'Short-sighted of you.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 7) {
-        spell = prompt('Forge Spirit!');
-        if(spell.toUpperCase() === 'EEQ' || spell.toUpperCase() === 'EQE' || spell.toUpperCase() === 'QEE') {
-            invokerResponse.textContent = 'Ravagers of Armor and Will!';
-            invokerSpree++;
-            invokerEmojis.textContent += '🔥';
-        }
-        else {
-            invokerResponse.textContent = 'Ruinous, ill-fated spell.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 8) {
-        spell = prompt('Chaos Meteor!');
-        if(spell.toUpperCase() === 'EEW' || spell.toUpperCase() === 'EWE' || spell.toUpperCase() === 'WEE') {
-            invokerResponse.textContent = 'Behold the meatball!';
-            invokerSpree++;
-            invokerEmojis.textContent += '☄️';
-        }
-        else {
-            invokerResponse.textContent = 'My concentration... shattered!';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }
-    else if(randomNumber === 9) {
-        spell = prompt('Deafening Blast!');
-        if(spell.toUpperCase() === 'QWE' || spell.toUpperCase() === 'QEW' || spell.toUpperCase() === 'WQE' || spell.toUpperCase() === 'WEQ' || spell.toUpperCase() === 'EQW' || spell.toUpperCase() === 'EWQ') {
-            invokerResponse.textContent = 'Sonic BOOM!';
-            invokerSpree++;
-            invokerEmojis.textContent += '🔊';
-        }
-        else {
-            invokerResponse.textContent = 'Hahahahahahahahahahahaha.';
-            invokerSpree = 0;
-            invokerEmojis.textContent = '';
-        }
-    }*/
     //Display invoking spree
     invokerScore.textContent = 'You\'ve invoked ' + invokerSpree + ' spells in a row!';
 }
