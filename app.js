@@ -198,13 +198,14 @@ function invokerGame() {
     var invokerEmojis = document.getElementById('invoker-game-emojis');
     //initializing where the end score goes
     var invokerScore = document.getElementById('invoker-game-score');
-
+    
     //first generate a random number between 1-10
     var randomNumber = Math.floor(Math.random() * 10);
     console.log(randomNumber);
     //depending on the number, prompt user with a spell.
+    var spell;
     if(randomNumber === 0) {
-        var spell = prompt('Coldsnap!');
+        spell = prompt('Coldsnap!');
         if(spell.toUpperCase() === 'QQQ') {
             invokerResponse.textContent = 'Quas Frigoris!';
             invokerSpree++;
@@ -342,17 +343,17 @@ var myMovespeed = 290;
 function movespeedGame() {
     //initializing where the end response
     var movespeedScore = document.getElementById('movespeed-game-score');
-
+    var movespeedGuess;
     //create a loop of i+1 guesses
     for(var i = 4; i >= 0; i--) {
-        var movespeedGuess = prompt('What is my movespeed?');
+        movespeedGuess = prompt('What is my movespeed?');
         console.log(movespeedGuess);
         //continue only if user didn't cancel or enter nothing
         if(movespeedGuess === null) {
             break;
         }
-        //check to see if it's the correct answer
-        else if(movespeedGuess == myMovespeed) {
+        //check to see if it's the correct answer, "==" because myMovespeed is stored as a number, but input is stored as a string.
+        else if(movespeedGuess === myMovespeed) {
             alert('The journey was worth it!');
             movespeedScore.textContent = 'You guessed my movespeed! Well done.';
             break;
@@ -375,7 +376,7 @@ function movespeedGame() {
             alert('Not as fast as nature\'s grace, Enchantress. You have ' + i + ' more guesses.');
         }
         else if(movespeedGuess > 310) {
-            alert('I\'m only a bit slower than Anti-mage. You have ' + i + ' more guesses.');
+            alert('I\'m only a bit slower than Anti-Mage. You have ' + i + ' more guesses.');
         }
         else if(movespeedGuess > 290) {
             alert('So close! You have ' + i + ' more guesses.');
@@ -389,6 +390,5 @@ function movespeedGame() {
         else {
             alert('Nope, guess again! You have ' + i + ' more tries.');
         }
-        
     }
 }
