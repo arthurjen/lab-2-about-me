@@ -40,6 +40,22 @@ function rubickWrongResponse() {
     var x = Math.floor(Math.random() * rubickWrong.length);
     alert(rubickWrong[x]);
 }
+unction invokerWrongResponse() {
+    const invokerWrong = [
+        'Lamentable.',
+        'Infelicitous.',
+        'This magic... disappoints!',
+        'Words fail me...',
+        'Perturbations!',
+        'This spell works nowise.',
+        'My concentration... shattered!',
+        'Hahahahahahahahahahaha!',
+        'Ruinous, ill-fated spell',
+        'Short-sighted of you.'
+    ];
+    var x = Math.floor(Math.random() * invokerWrong.length);
+    alert(invokerWrong[x]);
+}
 
 function ultimateGame() {
     //initializing where the stars/x's go
@@ -152,9 +168,9 @@ function itemGame() {
     ];
     var itemResponse;
     for(var i = 0; i < itemKey.length; i++) {
-        var trueOrFalse = 1 + Math.floor(Math.random() * 2);
+        var trueOrFalse = 1 + Math.floor(Math.random());
         console.log(trueOrFalse);
-        if(trueOrFalse === 1) {
+        if(trueOrFalse === 0) {
             itemResponse = prompt('Is ' + itemKey[i].trueComponent + ' a required component of ' + itemKey[i].item + '?');
         }
         else {
@@ -167,12 +183,12 @@ function itemGame() {
         itemResponse = itemResponse.toLowerCase();
         console.log(itemResponse);
         
-        if(trueOrFalse === 1 && itemResponse === 'true') {
+        if(trueOrFalse === 0 && itemResponse === 'true') {
             rubickCorrectResponse();
             score++;
             itemStars.textContent += '⭐️';
         }
-        else if(trueOrFalse === 2 && itemResponse === 'false') {
+        else if(trueOrFalse === 1 && itemResponse === 'false') {
             rubickCorrectResponse();
             score++;
             itemStars.textContent += '⭐️';
@@ -202,8 +218,28 @@ function invokerGame() {
     var randomNumber = Math.floor(Math.random() * 10);
     console.log(randomNumber);
     //depending on the number, prompt user with a spell.
+    var spellKey = [
+        {
+            spell: 'Coldsnap',
+            orbs: ['QQQ'],
+            response: ['Quas Frigoris'],
+            emoji: '❄️'
+        },
+        {
+            spell: 'Ghost Walk',
+            orbs: ['QQW', 'QWQ', 'WQQ'],
+            response: ['Geist of Lethargy!'],
+            emoji: '👻'
+        },
+        {
+            spell: 'Ice Wall',
+            orbs: ['QQE', 'QEQ', 'EQQ'],
+            response: ['The harsh white waste beckons!'],
+            emoji: '🏔'
+        }
+    ]
     var spell;
-    if(randomNumber === 0) {
+    /*if(randomNumber === 0) {
         spell = prompt('Coldsnap!');
         if(spell.toUpperCase() === 'QQQ') {
             invokerResponse.textContent = 'Quas Frigoris!';
@@ -332,7 +368,7 @@ function invokerGame() {
             invokerSpree = 0;
             invokerEmojis.textContent = '';
         }
-    }
+    }*/
     //Display invoking spree
     invokerScore.textContent = 'You\'ve invoked ' + invokerSpree + ' spells in a row!';
 }
