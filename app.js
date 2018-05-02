@@ -7,7 +7,27 @@ function ultimateGame() {
     var ultimateScore = document.getElementById('ultimate-game-score');
     //initializing score at 0
     var score = 0;
-
+    var ultimateKey = [
+        {
+            question: 'Supernova',
+            answer: ['phoenix']
+        },
+        {
+            question: 'Epicenter',
+            answer: ['sand king', 'sk', 'crixalis']
+        },
+        {
+            question: 'Exorcism',
+            answer: ['death\'s prophet', 'deaths prophet', 'dp', 'krobelus']
+        }
+    ]
+    var ultimateResponse;
+    for(var i = 0; i < ultimateKey.length; i++) {
+        ultimateResponse = prompt((i + 1) + '. ' + ultimateKey[i].question + '!');
+        ultimateResponse = ultimateResponse.toLowerCase();
+        
+    }
+    /*
     //the game begins! User is prompted with a spell, and must return the name of the hero that has that spell.
     var name = prompt('1. Supernova!');
     //if correct, increment score and give them a star. Otherwise, just give them an X.
@@ -121,6 +141,7 @@ function ultimateGame() {
     }
     //Display their final score out of 10.
     ultimateScore.textContent = 'You scored ' + score + ' out of 10!';
+    */
 }
 
 
@@ -401,6 +422,31 @@ function guess() {
     }
 }
 
-
-
+function nameGame() {
+    var nameKey = [ 
+        {
+            question: 'Drow Ranger',
+            answer: ['traxex']
+        },
+        {
+            question: 'Tinker',
+            answer: ['boush']
+        },
+        {
+            question: 'Weaver',
+            answer: ['skitskurr']
+        }
+    ];
+    //console.log(nameKey[0].answer);
+    var randomQuestion = Math.floor(Math.random() * nameKey.length);
+    var response = prompt(nameKey[randomQuestion].question);
+    response = response.toLowerCase();
+    console.log(response);
+    if(nameKey[randomQuestion].answer.includes(response) === true) {
+        alert('CORRECT!');
+    }
+    else {
+        alert('sorry');
+    }
+}
 
