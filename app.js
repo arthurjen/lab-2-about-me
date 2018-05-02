@@ -1,5 +1,40 @@
 'use strict';
 /* exported ultimateGame, itemGame, invokerGame, movespeedGame, */
+
+function rubickCorrectResponse() {
+    const rubickCorrect = [
+        'Indeed.',
+        'Aha!',
+        'Absolutely!',
+        'Yes!',
+        'Oh, there it is!',
+        'Mhmm.',
+        'I agree!',
+        'So many mysteries revealed.',
+        'Hehehe!',
+        'Such skill!'
+    ];
+    var x = Math.floor(Math.random() * rubickCorrect.length);
+    alert(rubickCorrect[x]);
+}
+
+function rubickWrongResponse() {
+    const rubickWrong = [
+        'Ha! That was terrible.',
+        'Oh, I hope no one saw that.',
+        'Whoops!',
+        'Whoops.',
+        'Maybe next time.',
+        'Hmm, maybe next time!',
+        'No!',
+        'Memory is an imperfect vessel.',
+        'Apply yourself!',
+        'I almost feel bad.'
+    ];
+    var x = Math.floor(Math.random() * rubickWrong.length);
+    alert(rubickWrong[x]);
+}
+
 function ultimateGame() {
     //initializing where the stars/x's go
     var ultimateStars = document.getElementById('ultimate-game-stars');
@@ -14,136 +49,64 @@ function ultimateGame() {
         },
         {
             question: 'Epicenter',
-            answer: ['sand king', 'sk', 'crixalis']
+            answer: ['sand king', 'sk', 'crixalis', 'sandy claws']
         },
         {
             question: 'Exorcism',
             answer: ['death\'s prophet', 'deaths prophet', 'dp', 'krobelus']
+        },
+        {
+            question: 'Sunder',
+            answer: ['terrorblade']
+        },
+        {
+            question: 'Omnislash',
+            answer: ['juggernaut', 'jugg', 'yurnero']
+        },
+        {
+            question: 'Eclipse',
+            answer: ['luna']
+        },
+        {
+            question: 'Reverse Polarity',
+            answer: ['magnus']
+        },
+        {
+            question: 'Mystic Flare',
+            answer: ['skywrath mage', 'skywrath', 'dragonus']
+        },
+        {
+            question: 'Fiend\'s Grip',
+            answer: ['bane', 'atropos']
+        },
+        {
+            question: 'Static Storm',
+            answer: ['disruptor']
         }
     ]
     var ultimateResponse;
+    ultimateStars.textContent = '';
     for(var i = 0; i < ultimateKey.length; i++) {
         ultimateResponse = prompt((i + 1) + '. ' + ultimateKey[i].question + '!');
+        if(ultimateResponse === null) {
+            break;
+        }
         ultimateResponse = ultimateResponse.toLowerCase();
+        console.log(ultimateResponse);
         
-    }
-    /*
-    //the game begins! User is prompted with a spell, and must return the name of the hero that has that spell.
-    var name = prompt('1. Supernova!');
-    //if correct, increment score and give them a star. Otherwise, just give them an X.
-    if(name.trim().toLowerCase() === 'phoenix') {
-        alert('Indeed!');
-        score++;
-        ultimateStars.textContent = '⭐️';
-    }
-    else {
-        alert('Ha! That was terrible.');
-        ultimateStars.textContent = '❌';
-    }
-    //repeat for all spells. Unsure if reusing variable "name" is kosher or not.
-    name = prompt('2. Epicenter!');
-    if(name.trim().toLowerCase() === 'sand king') {
-        alert('Aha!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Oh, I hope no one saw that.');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('3. Exorcism!');
-    if(name.trim().toLowerCase() === 'death\'s prophet' || name.trim().toLowerCase() === 'deaths prophet' || name.trim().toLowerCase() === 'krobelus') {
-        alert('Absolutely!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Whoops!');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('4. Sunder!');
-    if(name.trim().toLowerCase() === 'terrorblade') {
-        alert('Such skill!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Maybe next time.');
-        ultimateStars.textContent += '❌';
-    }
-    
-    name = prompt('5. Omnislash!');
-    if(name.trim().toLowerCase() === 'juggernaut' || name.trim().toLowerCase() === 'Yurnero') {
-        alert('Yes!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('No!');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('6. Eclipse!');
-    if(name.trim().toLowerCase() === 'luna') {
-        alert('Oh, there it is!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Your attempt was pathetic!');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('7. Reverse Polarity!');
-    if(name.trim().toLowerCase() === 'magnus') {
-        alert('Hehehe!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Whoops!');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('8. Mystic Flare!');
-    if(name.trim().toLowerCase() === 'skywrath' || name.trim().toLowerCase() === 'skywrath mage' || name.trim().toLowerCase() === 'dragonus') {
-        alert('So many mysteries revealed.');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('I almost feel bad.');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('9. Fiend\'s Grip!');
-    if(name.trim().toLowerCase() === 'bane') {
-        alert('Mhmm.');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Apply yourself!');
-        ultimateStars.textContent += '❌';
-    }
-
-    name = prompt('10. Static Storm!');
-    if(name.trim().toLowerCase() === 'disruptor') {
-        alert('I agree!');
-        score++;
-        ultimateStars.textContent += '⭐️';
-    }
-    else {
-        alert('Memory is an imperfect vessel.');
-        ultimateStars.textContent += '❌';
+        if(ultimateKey[i].answer.includes(ultimateResponse) === true) {
+            rubickCorrectResponse();
+            score++;
+            ultimateStars.textContent += '⭐️';
+        }
+        else {
+            rubickWrongResponse();
+            ultimateStars.textContent += '❌';
+        }
     }
     //Display their final score out of 10.
     ultimateScore.textContent = 'You scored ' + score + ' out of 10!';
-    */
 }
-
 
 function itemGame() {
     //initializing where the stars/x's go
