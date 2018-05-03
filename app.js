@@ -5,10 +5,12 @@
 function rubickCorrectResponse() {
     const rubickCorrect = [
         'Indeed.',
+        'Indeed!',
         'Aha!',
         'Absolutely!',
         'Absolutely.',
         'Yes!',
+        'Yes.',
         'Oh, there it is!',
         'Mhmm.',
         'I agree!',
@@ -37,6 +39,10 @@ function rubickWrongResponse() {
         'Apply yourself!',
         'I almost feel bad.',
         'You idiot! Ugh.',
+        'Too bad.',
+        'Too bad!',
+        'You\'re wasting talent!',
+        'Pity.',
         'That was your best?'
     ];
     var x = Math.floor(Math.random() * rubickWrong.length);
