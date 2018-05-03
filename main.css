@@ -46,3 +46,7 @@ div {
 #invoker-game-emojis {
     font-size: 2em;
 }
+
+input {
+    color: black;
+}

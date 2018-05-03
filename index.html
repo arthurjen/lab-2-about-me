@@ -49,11 +49,13 @@
                 <h3 id="movespeed-game-score"></h3>
                 <hr>
         </section>
-        <section class="game" id="name-game">
-            <h2>Name Game</h2>
-            <p>Prepare to be tested! Can you guess names?</p>
-            <button onclick="nameGame()">Start</button>
-            <h3 id="movespeed-game-score"></h3>
+        <section class="game" id="hero-name-game">
+            <h2>Hero Game</h2>
+            <p>I'm thinking of a hero. I'll give you 3 guesses.</p>
+            <input id="hero-name">
+            <button onclick="heroGame()" id="hero-btn">Guess</button>
+            <p id="hero-game-hint"></p>
+            <h3 id="hero-game-score"></h3>
             <hr>
         </section>
         <footer>
